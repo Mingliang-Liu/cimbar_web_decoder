@@ -87,12 +87,6 @@ var Zstd = function () {
     //     return window.URL.revokeObjectURL(bloburl);
     //   }, 1000);
     // },
-
-    // decompress: function (name, id) {
-    //   const reader = getDecompressReader(id);
-
-    //   saveToFile(reader, name);
-    // }
     download_blob: function (name, blob) {
       const file = new File([blob], name, { type: 'application/octet-stream' });
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -123,5 +117,11 @@ var Zstd = function () {
         }, 1000);
       }
     },
+
+    decompress: function (name, id) {
+      const reader = getDecompressReader(id);
+
+      saveToFile(reader, name);
+    }
   };
 }();
